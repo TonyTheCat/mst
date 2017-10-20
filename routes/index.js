@@ -5,7 +5,7 @@ const user = require('../models/user')
 
 /* GET index */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Login / SignUp Form' });
 });
 
 router.post('/login', (req, res, next) => {

@@ -6,9 +6,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const passport = require('./common/passport');
 const jwt = require('jsonwebtoken');
+const routes = require('./routes/routes');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
+// const index = require('./routes/index');
+// const users = require('./routes/users');
 
 const app = express();
 
@@ -69,8 +70,9 @@ const db = {
 };
 
 // Router
-app.use('/', index);
-app.use('/users', users);
+require('./routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+// app.use('/', index);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
