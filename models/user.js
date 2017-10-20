@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const schema = require('./schemas/users');
+const bcrypt   = require('bcrypt-nodejs');
 
-module.exports = mongoose.model('User', new Schema({
-    name: String,
-    password: String,
-    admin: Boolean
-}));
+// generating a hash
+schema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', schema);
