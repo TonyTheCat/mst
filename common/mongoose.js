@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const config = require('./config');
+const config = require('../config/config');
 
 // Connection to DB
-mongoose.connect(config.database);
+db = mongoose.connect(config.database);
 
 // POST request parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 console.log('===MONGOOSE COMMON===');
 

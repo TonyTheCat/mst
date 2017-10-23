@@ -1,10 +1,14 @@
 const passport = require('../common/passport')
 const router = require('express').Router();
+const User = require('../models/user');
 
-    // Add middleware JUST FOR TEST!
-    router.use(function timeLog (req, res, next) {
-        console.log('Time: ', Date.now());
-        next()
+    router.get('/sign_up', (req, res) => {
+       let user = new User;
+       user.save((err) => {
+           if (err) throw err;
+           console.log('User was saved successfully');
+       });
+        return res.json( {status: 200} )
     });
 
     // Root route

@@ -1,5 +1,7 @@
 const express = require('express');
 const routes = require('./routes/routes');
+const db = require('./common/mongoose');
+
 
 // const path = require('path');
 // const favicon = require('serve-favicon');
@@ -12,6 +14,8 @@ const routes = require('./routes/routes');
 
 // const index = require('./routes/index');
 // const users = require('./routes/users');
+
+
 
 const app = express();
 
